@@ -1,52 +1,54 @@
 <!DOCTYPE html>
 <html>
     <head>
-
+        <link rel="stylesheet" href="styles.css">
     </head>
 
     <body>
         <div id = "mainBody">
+            <div id = "infoBody" class="blockBody">
+                <div id = "topBar">
+                    <h1>WordInfo</h1>
+                </div>
+                <i>Everything you need to know about your words.</i>
+                <h2>Type a sentence or word below.</h2>
+    
+                <textarea rows="8" cols="60" placeholder="You can type anything from a word to a large document and this algorithm will give you information for it."></textarea>
+                <br>
+                <button onclick="genInfo()" id = "infoBtn">
+                    Get Information
+                </button>
+                <br><br>
+                <div id = "information" hidden>
+                    <h2>Your sentence has...</h2>
+                    <span id = "wordC" class = "infoVal">0</span> total words<br><br>
+                    <span id = "charC" class = "infoVal">0</span> total characters<br><br>
+                    <span id = "voweC" class = "infoVal">0</span> total vowels<br><br>
+                    <span id = "syllC" class = "infoVal">0</span> total syllables<br><br>
+    
+                    <h2>When saying your sentence...</h2>
+                    Your mouth will close <span id = "closC" class = "infoVal">0</span> times
+    
+                    <h2>Top Words</h2>
+                    <span class = "infoTitle">Most Characters: </span>
+                    <span id = "mChar" class = "infoVal">Word</span> <br> <br>
+                    <span class = "infoTitle">Least Characters: </span>
+                    <span id = lChar" class = "infoVal">Word</span> <br> <br>
+                    <span class = "infoTitle" >Most Vowels: </span>
+                    <span id = "mVowe" class = "infoVal">Word</span> <br> <br>
+                    <span class = "infoTitle">Least Vowels: </span>
+                    <span id = "lVowe" class = "infoVal">Word</span> <br> <br>
+                    <span class = "infoTitle">Most Syllables: </span>
+                    <span id = "mSyll" class = "infoVal">Word</span> <br> <br>
+                    <span class = "infoTitle">Least Syllables: </span>
+                    <span id = "lSyll" class = "infoVal">Word</span> <br> <br>
+                </div>
             </div>
-            <div id = "topBar">
-                <h1>WordInfo</h1>
+            <div id = "footerbd" class="blockBody">
+                <h2>Source Code</h2>
+                View source code here on Github <a href="https://github.com/doorHinge1/wordInfo" target="_blank">here.</a>
             </div>
-            <i>Everything you need to know about your words.</i>
-            <h2>Type a sentence or word below.</h2>
-
-            <textarea rows="8" cols="60" placeholder="You can type anything from a word to a large document and this algorithm will give you information for it."></textarea>
             <br>
-            <button onclick="genInfo()">
-                Get Information
-            </button>
-
-            <div id = "information" hidden>
-                <h2>Your sentence has...</h2>
-                <div id = "wordC">0 total words</div> <br>
-                <div id = "charC">0 total characters</div> <br>
-                <div id = "voweC">0 total vowels</div> <br>
-                <div id = "syllC">0 total syllables</div> <br>
-
-                <h2>When saying your sentence...</h2>
-                <div id = "closC">Your mouth will close 0 times</div>
-
-                <h2>Top Words</h2>
-                <span class = "infoTitle">Most Characters: </span>
-                <span id = "mChar">Word</span> <br> <br>
-                <span class = "infoTitle">Least Characters: </span>
-                <span id = lChar">Word</span> <br> <br>
-                <span class = "infoTitle">Most Vowels: </span>
-                <span id = "mVowe">Word</span> <br> <br>
-                <span class = "infoTitle">Least Vowels: </span>
-                <span id = "lVowe">Word</span> <br> <br>
-                <span class = "infoTitle">Most Syllables: </span>
-                <span id = "mSyll">Word</span> <br> <br>
-                <span class = "infoTitle">Least Syllables: </span>
-                <span id = "lSyll">Word</span> <br> <br>
-            </div>
-        </div>
-        
-        <div id="history">
-            <h2>History</h2>
         </div>
     </body>
 </html>

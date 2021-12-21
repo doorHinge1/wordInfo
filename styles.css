@@ -1,0 +1,68 @@
+body{
+    font-size: large;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(61, 61, 61);
+}
+
+h1{
+    color: rgb(0, 73, 73);
+}
+
+h2{
+    color: rgb(0, 73, 73);
+}
+
+.infoVal{
+    color: rgb(0, 162, 255);
+    font-weight: 600;
+}
+
+textarea{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: large;
+    border-color: rgb(204, 204, 204);
+    border-width: 2px;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-top: 10px;
+    resize: none;
+}
+
+#infoBtn{
+    border:none;
+    width:575px;
+    height:50px;
+    background-color: rgb(0, 73, 73);
+    border-radius: 20px;
+    color:white;
+    font-size: large;
+    transition: background-color .5s;
+    transform:translate(0,10px);
+}
+
+#infoBtn:hover{
+    background-color: rgb(54, 105, 105);
+}
+
+#information{
+    transform: translate(0,10px);
+}
+
+.blockBody{
+    padding-top: 5px;
+    background-color: rgb(237, 244, 246);
+    width:800px;
+    z-index: -1;
+    padding-left: 30px;
+}
+
+#footerbd{
+    transform:translate(0,10px);
+    height: 120px;
+}
+
+#mainBody{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%,0);
+}
