@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+
+    <body>
+        <div id = "mainBody">
+            </div>
+            <div id = "topBar">
+                <h1>WordInfo</h1>
+            </div>
+            <i>Everything you need to know about your words.</i>
+            <h2>Type a sentence or word below.</h2>
+
+            <textarea rows="8" cols="60" placeholder="You can type anything from a word to a large document and this algorithm will give you information for it."></textarea>
+            <br>
+            <button onclick="genInfo()">
+                Get Information
+            </button>
+
+            <div id = "information" hidden>
+                <h2>Your sentence has...</h2>
+                <div id = "wordC">0 total words</div> <br>
+                <div id = "charC">0 total characters</div> <br>
+                <div id = "voweC">0 total vowels</div> <br>
+                <div id = "syllC">0 total syllables</div> <br>
+
+                <h2>When saying your sentence...</h2>
+                <div id = "closC">Your mouth will close 0 times</div>
+
+                <h2>Top Words</h2>
+                <span class = "infoTitle">Most Characters: </span>
+                <span id = "mChar">Word</span> <br> <br>
+                <span class = "infoTitle">Least Characters: </span>
+                <span id = lChar">Word</span> <br> <br>
+                <span class = "infoTitle">Most Vowels: </span>
+                <span id = "mVowe">Word</span> <br> <br>
+                <span class = "infoTitle">Least Vowels: </span>
+                <span id = "lVowe">Word</span> <br> <br>
+                <span class = "infoTitle">Most Syllables: </span>
+                <span id = "mSyll">Word</span> <br> <br>
+                <span class = "infoTitle">Least Syllables: </span>
+                <span id = "lSyll">Word</span> <br> <br>
+            </div>
+        </div>
+        
+        <div id="history">
+            <h2>History</h2>
+        </div>
+    </body>
+</html>
