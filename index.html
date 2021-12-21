@@ -11,9 +11,9 @@
                     <h1>WordInfo</h1>
                 </div>
                 <i>Everything you need to know about your words.</i>
-                <h2>Type a sentence or word below.</h2>
+                <h2>Type a sentence or word below</h2>
     
-                <textarea rows="8" cols="60" placeholder="You can type anything from a word to a large document and this algorithm will give you information for it."></textarea>
+                <textarea id = "textInput" rows="8" cols="80" placeholder="You can type anything from a word to a large document and this algorithm will give you information for it."></textarea>
                 <br>
                 <button onclick="genInfo()" id = "infoBtn">
                     Get Information
@@ -23,6 +23,7 @@
                     <h2>Your sentence has...</h2>
                     <span id = "wordC" class = "infoVal">0</span> total words<br><br>
                     <span id = "charC" class = "infoVal">0</span> total characters<br><br>
+                    <span id = "charC2" class = "infoVal">0</span> total characters (only inside words)<br><br>
                     <span id = "voweC" class = "infoVal">0</span> total vowels<br><br>
                     <span id = "syllC" class = "infoVal">0</span> total syllables<br><br>
     
@@ -51,4 +52,6 @@
             <br>
         </div>
     </body>
+
+    <script src = "mainScript.js"></script>
 </html>
