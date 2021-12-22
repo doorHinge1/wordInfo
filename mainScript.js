@@ -110,12 +110,16 @@ function scanCharacters(word)
         
         if(vowels.includes(char))
         {
-            wVowels++;
+            if (char!="y")
+                wVowels++;
             if(!vowels.includes(pChar))
             {
                 wSylls++;
             }
             if ((char=="a"||char=="o")&&pChar=="i"&&word[i-2]!="t")
+                wSylls++;
+
+            if (char=="o"&&pChar=="e")
                 wSylls++;
         }            
 
