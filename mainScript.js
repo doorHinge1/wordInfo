@@ -6,10 +6,17 @@ var voweC = document.getElementById("voweC");
 var syllC = document.getElementById("syllC");
 var closC = document.getElementById("closC");
 
+var mChar = document.getElementById("mChar");
+var mChar2 = document.getElementById("mChar2");
+var mVowe = document.getElementById("mVowe");
+var mVowe2 = document.getElementById("mVowe2");
+var mSyll = document.getElementById("mSyll");
+var mSyll2 = document.getElementById("mSyll2");
+
 var infoBody = document.getElementById("information")
 const allChars = "abcdefghijklmnopqrstuvwxyz "
 const nonSpace = "abcdefghijklmnopqrstuvwxyz"
-const vowels = "aeiou"
+const vowels = "aeiouy"
 const lipLetters = "bfmpv"
 
 function genInfo()
@@ -23,6 +30,28 @@ function genInfo()
     voweC.textContent = scanData[2];
     syllC.textContent = scanData[3];
     closC.textContent = scanData[4];
+
+    var tCharData = getTopVWord(scanData[5],1);
+    var lCharData = getBottomVWord(scanData[5],1);
+    var tVoweData = getTopVWord(scanData[5],2);
+    var lVoweData = getBottomVWord(scanData[5],2);
+    var tSyllData = getTopVWord(scanData[5],3);
+    var lSyllData = getBottomVWord(scanData[5],3);
+
+    mChar.textContent=tCharData[0];
+    mChar2.textContent=tCharData[1];
+    lChar.textContent=lCharData[0];
+    lChar2.textContent=lCharData[1];
+
+    mVowe.textContent=tVoweData[0];
+    mVowe2.textContent=tVoweData[1];
+    lVowe.textContent=lVoweData[0];
+    lVowe2.textContent=lVoweData[1];
+
+    mSyll.textContent=tSyllData[0];
+    mSyll2.textContent=tSyllData[1];
+    lSyll.textContent=lSyllData[0];
+    lSyll2.textContent=lSyllData[1];
 
     infoBody.style.display = "block";
 }
@@ -69,7 +98,8 @@ function scanCharacters(word)
     let wSylls = 0;
     let wCloses = 0;
 
-    let pChar = ""
+    let pChar = "#"
+       
     for (let i = 0; i < wChars; i++)
     {
         let char = word.charAt(i);
@@ -78,30 +108,61 @@ function scanCharacters(word)
         if (i+1<wChars)
             nChar = word.charAt(i+1)
         
-        if (vowels.includes(char))
+        if(vowels.includes(char))
+        {
             wVowels++;
+            if(!vowels.includes(pChar))
+            {
+                wSylls++;
+            }
+            if ((char=="a"||char=="o")&&pChar=="i"&&word[i-2]!="t")
+                wSylls++;
+        }            
 
-        if (pChar != char && lipLetters.includes(char))
+        if (pChar != char && !lipLetters.includes(pChar) && lipLetters.includes(char))
             wCloses++;
 
-        if (syllCheck(pChar,char,nChar))
-            wSylls++;
-        
         pChar = char;
     }
+
+    if(word.endsWith("e")&&!vowels.includes(word.charAt(word.length-2)))
+        wSylls--;
+    if(word.endsWith("le")&&word.length>2&&!vowels.includes(word[-3]))
+        wSylls++;   
+    if(wSylls==0)
+        wSylls=1;
+
     return [word, wChars, wVowels, wSylls, wCloses];
 }
 
-function syllCheck(pChar,char,nChar)
+function getTopVWord(data,vIndex)
 {
-    if (!vowels.includes(pChar)&&vowels.includes(char))
+    let topV=0;
+    let wrd="?";
+    for(let i = 0; i<data.length;i++)
     {
-        if (char != "e")
-            return true;
+        cData = data[i];
+        if (cData[vIndex]>topV)
+        {
+            topV = cData[vIndex];
+            wrd = cData[0];
+        }
     }
+    return [wrd,topV];
+}
 
-    if (pChar=="i"&&(char=="a"||char=="o"))
-        return true;
-    if (pChar=="e"&&char=="o")
-        return true;
+function getBottomVWord(data,vIndex)
+{
+    let topV=20000;
+    let wrd="?";
+    for(let i = 0; i<data.length;i++)
+    {
+        cData = data[i];
+        if (cData[vIndex]<topV)
+        {
+            topV = cData[vIndex];
+            wrd = cData[0];
+        }
+    }
+    return [wrd,topV];
 }
